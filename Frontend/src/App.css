@@ -5,3 +5,59 @@
   text-align: center;
 }
 
+/*LAYOUT APPLICAZIONE COMPLETA */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  flex: 1;
+}
+
+/*REACT-DATEPICKER*/
+
+.react-datepicker {
+  font-family: "Playfair Display", sans-serif;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.react-datepicker__header {
+  background-color: #141f36;
+  margin-bottom: none;
+}
+
+.react-datepicker__current-month,
+.react-datepicker-time__header {
+  color: white;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #141f36 !important;
+  color: white !important;
+}
+
+.react-datepicker__time-container {
+  border-left: 1px solid #141f36;
+}
+
+.react-datepicker__time-list-item--selected {
+  background-color: #141f36 !important;
+  color: white !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: #d6d9e4 !important;
+  color: #141f36 !important;
+}

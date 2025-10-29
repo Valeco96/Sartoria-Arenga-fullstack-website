@@ -31,10 +31,6 @@ export async function getUpcomingBookings(bookingDate, token) {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(
-      "Response completa con dati delle prenotazioni:",
-      response.data
-    );
     return response.data;
   } catch (error) {
     console.log("Errore getUpcomingBooking", error);
@@ -49,10 +45,6 @@ export async function getPastBookings(bookingDate, token) {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(
-      "Response completa con dati delle prenotazioni:",
-      response.data
-    );
     return response.data;
   } catch (error) {
     console.log("Errore getPastBooking", error);
@@ -67,7 +59,6 @@ export async function getSingleBooking(bookingId, token) {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log("Response completa:", response.data);
     return response.data;
   } catch (error) {
     console.log("Errore getSingleBooking:", error);
@@ -86,7 +77,6 @@ export async function updateBookingStatus(bookingId, updatedStatus, token) {
         },
       }
     );
-    console.log("Status updated:", response.data);
     return response.data;
   } catch (error) {
     console.error("Errore updateBookingStatus:", error);
@@ -100,7 +90,6 @@ export async function updateBookingDate(bookingId, updatedDate) {
     const response = await axios.patch(`api/bookings/${bookingId}/date`, {
       updatedDate,
     });
-    console.log("Date updated:", response.data);
     return response.data;
   } catch (error) {
     console.error("Errore updateBookingDate:", error);

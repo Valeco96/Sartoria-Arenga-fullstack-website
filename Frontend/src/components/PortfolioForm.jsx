@@ -278,7 +278,7 @@ function PortfolioForm() {
               <Button
                 type="submit"
                 disabled={loading}
-                style={{ backgroundColor: "#141f32" }}
+                className="btn-custom-salva"
               >
                 {loading ? <Spinner animation="border" size="sm" /> : "Salva"}
               </Button>
@@ -286,10 +286,7 @@ function PortfolioForm() {
                 variant="warning"
                 type="button"
                 onClick={handleReset}
-                style={{
-                  backgroundColor: "rgb(255, 115, 34)",
-                  color: "#FFFFFF",
-                }}
+                className="btn-custom-reset"
               >
                 Reset
               </Button>

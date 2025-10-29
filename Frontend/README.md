@@ -1,16 +1,60 @@
-# React + Vite
+# 🧵 Sartoria Arenga - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📖 About
 
-Currently, two official plugins are available:
+Il progetto **Sartoria Arenga** è un'applicazione web che racconta e valorizza l'eccellenza della sartoria napoletana.
+Attraverso un'interfaccia elegante e intuitiva, permette di esplorare il portfolio dei capi realizzati e gestire prenotazioni personalizzate.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ⚙️ Tecnologie principali
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- React Router
+- Bootstrap 5 + React-Bootstrap
+- Axios per chiamate API
+- Framer Motion per animazioni
+- Date-fns per gestione date
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧭 Struttura del progetto
+
+- `/components` → Componenti riutilizzabili (Navbar, Footer, ecc.)
+- `/pages` → Pagine principali del sito (Homepage, Portfolio, Prenotazioni, Admin, ecc.)
+- `/data` → Funzioni Axios per chiamate API
+- `/context` → Gestione autenticazione JWT
+
+---
+
+## Note su React + Vite
+
+- Questo progetto utilizza il template base di Vite + React, con HMR (Hot Module Replacement) attivo e configurazione ESLint minima.
+
+Plugin principali:
+
+@vitejs/plugin-react
+→ utilizza Babel per il refresh veloce
+
+@vitejs/plugin-react-swc
+→ alternativa con SWC per prestazioni migliori
+
+---
+
+## 🚀 Setup locale
+
+```bash
+cd frontend
+npm install
+npm run dev      # Avvia ambiente di sviluppo
+npm run build    # Crea la build di produzione
+npm run preview  # Anteprima della build
+npm run deploy   # Deploy su GitHub Pages
+
+
+```
+---
+
+## Crediti
+
+Progetto sviluppato da **Valentina Correale** come parte del corso **Epicode Final Project**

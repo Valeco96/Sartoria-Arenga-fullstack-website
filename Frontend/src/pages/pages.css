@@ -277,3 +277,10 @@ body {
   border-radius: 10px;
   color: #141f32;
 }
+
+/*ADMINBOOKING*/
+
+.table-bordered {
+  border: 5px double #141f35 !important;
+}
+

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createBooking } from "../data/bookings";
 import { Button, Form, Alert, Spinner } from "react-bootstrap";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 function BookingForm() {
@@ -9,7 +10,7 @@ function BookingForm() {
     surname: "",
     email: "",
     phone: "",
-    appointmentDate: "",
+    appointmentDate: null,
     service: "",
     notes: "",
   });
@@ -23,6 +24,10 @@ function BookingForm() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleDateChange = (date) => {
+    setFormData((prev) => ({ ...prev, appointmentDate: date }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -30,6 +35,10 @@ function BookingForm() {
     setError("");
 
     try {
+      if (!formData.appointmentDate) {
+        throw new Error("Per favore seleziona una data e un orario");
+      }
+
       const appointment = new Date(formData.appointmentDate);
       const hour = appointment.getHours();
 
@@ -57,13 +66,13 @@ function BookingForm() {
         surname: "",
         email: "",
         phone: "",
-        appointmentDate: "",
+        appointmentDate: null,
         service: "",
         notes: "",
       });
     } catch (error) {
       alert(
-        "La richiesta di prenotazione non è stata inviata correttamente. Vi chiediamo di ricontrollare l'inserimento"
+        "La richiesta di prenotazione non è andata a buon fine. Vi chiediamo di ricontrollare che tutti i campi siano stati compilati, e che l'orario di prenotazione sia corretto."
       );
       setError(error.message || "Errore del server.");
     } finally {
@@ -75,59 +84,84 @@ function BookingForm() {
     <div className="py-4">
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
-          <Form.Label className="fw-bold">Nome:</Form.Label>
-          <Form.Control
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
+          {/* <Form.Label className="fw-bold">Nome:</Form.Label> */}
+          <Form.Floating className="mb-3">
+            <Form.Control
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+            <label htmlFor="name">Nome:</label>
+          </Form.Floating>
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label className="fw-bold">Cognome:</Form.Label>
-          <Form.Control
-            type="text"
-            name="surname"
-            value={formData.surname}
-            onChange={handleChange}
-            required
-          />
+          {/* <Form.Label className="fw-bold">Cognome:</Form.Label> */}
+          <Form.Floating className="mb-3">
+            <Form.Control
+              type="text"
+              name="surname"
+              value={formData.surname}
+              onChange={handleChange}
+              required
+            />
+            <label htmlFor="name">Cognome:</label>
+          </Form.Floating>
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label className="fw-bold">Email:</Form.Label>
-          <Form.Control
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+          {/* <Form.Label className="fw-bold">Email:</Form.Label> */}
+          <Form.Floating className="mb-3">
+            <Form.Control
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+            <label htmlFor="name">Email:</label>
+          </Form.Floating>
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label className="fw-bold">Telefono:</Form.Label>
-          <Form.Control
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-          />
+          {/* <Form.Label className="fw-bold">Telefono:</Form.Label> */}
+          <Form.Floating className="mb-3">
+            <Form.Control
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+            <label htmlFor="name">Telefono:</label>
+          </Form.Floating>
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label className="fw-bold">Data e Ora Appuntamento:</Form.Label>
-          <Form.Control
+          <Form.Label className="fw-bold me-3">
+            Data e Ora Appuntamento:
+          </Form.Label>
+          <DatePicker
+            selected={formData.appointmentDate}
+            onChange={handleDateChange}
+            showTimeSelect
+            timeIntervals={30}
+            dateFormat="dd/MM/yyyy HH:hh"
+            minDate={new Date()}
+            placeholderText="Seleziona data e ora"
+            className="form-control"
+            required
+          />
+          {/* <Form.Control
             type="datetime-local"
             name="appointmentDate"
             value={formData.appointmentDate}
             onChange={handleChange}
             required
-          />
-          <Form.Text className="text-muted">
+          /> */}
+          <Form.Text className="text-muted d-block">
             Orario disponibile (Lun-Ven: 09:00-18:00 / Sab: 10:00-13:00)
           </Form.Text>
         </Form.Group>
@@ -139,7 +173,7 @@ function BookingForm() {
             value={formData.service}
             onChange={handleChange}
           >
-            <option value="">-- Seleziona un servizio --</option>
+            <option value="">- Seleziona un servizio -</option>
             <option value="riparazione">Riparazione</option>
             <option value="su-misura">Abito su misura</option>
             <option value="modifica">Modifica capo</option>
@@ -158,11 +192,7 @@ function BookingForm() {
         </Form.Group>
 
         <div className="mt-5">
-          <Button
-            style={{ backgroundColor: "#141f32" }}
-            type="submit"
-            disabled={loading}
-          >
+          <Button className="btn-custom-salva" type="submit" disabled={loading}>
             {loading ? (
               <Spinner size="sm" animation="border" />
             ) : (

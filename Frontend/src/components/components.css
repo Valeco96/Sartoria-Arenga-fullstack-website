@@ -27,6 +27,55 @@ body {
   text-align: left;
 }
 
+.form-control {
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #141f35;
+  box-shadow: 0 0 8px rgba(1, 30, 83, 0.3);
+}
+
+.btn-custom-salva {
+  background-color: #141f32;
+  color: white;
+  border-radius: 8px;
+  padding: 8px 16px;
+  transition: background 0.3s ease;
+}
+
+.btn-custom-reset {
+  background-color: rgb(206, 78, 3, 1);
+  color: white;
+  border: 1px solid rgb(206, 78, 3, 1);
+  border-radius: 8px;
+  padding: 8px 16px;
+  transition: background 0.3s ease;
+}
+
+.btn-custom-salva:hover {
+  background-color: white;
+  color: #141f36;
+}
+
+.btn-custom-reset:hover {
+  background-color: white;
+  color: rgb(206, 78, 3, 1);
+  border: 1px solid rgb(206, 78, 3, 1);
+}
+
+.form-floating label {
+  color: #141f32;
+  opacity: 0.8;
+}
+
+.form-floating input:focus + label {
+  color: rgb(206, 78, 3, 1);
+}
+
 /*PORTFOLIO FORM*/
 
 .portfolio-form-wrapper {
@@ -60,7 +109,7 @@ body {
 .piece-image {
   width: 100%;
   height: 500px;
-  object-fit: cover; 
+  object-fit: cover;
   transition: transform 0.4s ease;
 }
 

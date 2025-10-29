@@ -114,19 +114,22 @@ function AdminBookings() {
 
   return (
     <>
-      <div className="container py-5">
-        <h1 className="mb-5 p-3">📅 Gestione Prenotazioni</h1>
+      <div className="container py-5" style={{ color: "#141f36" }}>
+        <h1 className="mb-5 p-3 fw-bold">Gestione Prenotazioni</h1>
 
         {error && <Alert variant="danger">{error}</Alert>}
         {loading && <Spinner animation="border" />}
 
         {/*Filtro per stato */}
-        <div className="mb-3 d-flex gap-3 align-items-center">
-          <Form.Label>Filtra per stato:</Form.Label>
+        <div
+          className="mb-3 d-flex gap-3 align-items-center"
+          style={{ color: "#141f36" }}
+        >
+          <Form.Label className="fw-bold">Filtra per stato:</Form.Label>
           <Form.Select
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value)}
-            style={{ width: "200px" }}
+            style={{ width: "200px", color: "#141f36", border: "1px solid #141f36" }}
           >
             <option value="all">Tutti</option>
             <option value="pending">Pending</option>
@@ -136,7 +139,7 @@ function AdminBookings() {
         </div>
 
         {/*Tabella prenotazioni*/}
-        <Table bordered hover responsive>
+        <Table striped bordered hover responsive style={{ color: "#141f36" }}>
           <thead className="table-dark">
             <tr>
               <th>Nome:</th>
@@ -186,15 +189,14 @@ function AdminBookings() {
                 </td>
                 <td>
                   <Button
-                    variant="outline-dark"
                     size="sm"
-                    className="me-2"
+                    className="m-2 btn-custom-salva"
                     onClick={() => handleEdit(booking)}
                   >
                     Modifica
                   </Button>
                   <Button
-                    variant="outline-danger"
+                    className="m-2 btn-custom-reset"
                     size="sm"
                     onClick={() => handleDelete(booking._id)}
                   >
@@ -253,10 +255,18 @@ function AdminBookings() {
           </Modal.Body>
 
           <Modal.Footer>
-            <Button variant="secondary" onClick={() => setShowModal(false)}>
+            <Button
+              variant="secondary"
+              className="btn-custom-reset"
+              onClick={() => setShowModal(false)}
+            >
               Annulla
             </Button>
-            <Button variant="primary" onClick={handleSaveChanges}>
+            <Button
+              variant="primary"
+              className="btn-custom-salva"
+              onClick={handleSaveChanges}
+            >
               Salva modifiche
             </Button>
           </Modal.Footer>

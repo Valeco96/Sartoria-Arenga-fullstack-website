@@ -14,6 +14,7 @@ const corsOptions = {
   origin: [
     "http://localhost:5173", // per sviluppo
     "https://sartoria-arenga.netlify.app", // dominio Netlify
+    "https://valeco96.github.io/Epicode-finalProject-SartoriaArenga/", // dominio GitHub Pages
   ],
   credentials: true,
 };
@@ -36,6 +37,10 @@ await mongoose
 
 server.get("/", (request, response) => {
   response.send("Server online!");
+});
+
+server.use((request, response) => {
+  response.status(404).json({ message: "Endpoint non trovato." });
 });
 
 server.listen(port, () => console.log(`Server avviato sulla porta ${port}`)); // il server é in ascolto di richieste alla porta indicata

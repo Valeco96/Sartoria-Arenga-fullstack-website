@@ -1,6 +1,5 @@
 import { Link } from "react-router";
 
-
 function TradNapoli() {
   return (
     <>
@@ -46,9 +45,7 @@ function TradNapoli() {
               <h2 className="pb-3 pt-3">Spalla "a camicia"</h2>
               <p className="pb-4 px-5">
                 La manica è cucita come una camicia, senza imbottitura, per dare
-                maggiore naturalezza e libertà nei movimenti. - Rollino morbido
-                (“manica a mappina”): la manica termina con una leggera
-                arricciatura che conferisce morbidezza e uno stile rilassato.
+                maggiore naturalezza e libertà nei movimenti.
               </p>
               <h2 className="pb-3">Rollino morbido</h2>
               <p className="pb-3 px-5">

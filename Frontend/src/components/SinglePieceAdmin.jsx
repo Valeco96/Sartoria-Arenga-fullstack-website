@@ -58,15 +58,13 @@ function SinglePieceAdmin({ piece, onClick }) {
           </p>
           <div className="mt-auto">
             <Button
-              style={{ backgroundColor: "#141f32" }}
-              className="my-4 mx-3"
+              className="my-4 mx-3 btn-custom-salva"
               onClick={() => handleEdit(piece._id)}
             >
               Modifica
             </Button>
             <Button
-              className="my-4 mx-3"
-              style={{ backgroundColor: "rgba(206, 78, 3, 1)" }}
+              className="my-4 mx-3 btn-custom-reset"
               onClick={() => handleDelete(piece._id)}
             >
               Elimina
