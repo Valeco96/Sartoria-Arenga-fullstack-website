@@ -69,8 +69,8 @@ export async function getSingleBooking(bookingId, token) {
 export async function updateBookingStatus(bookingId, updatedStatus, token) {
   try {
     const response = await axios.patch(
-      `api/bookings/${bookingId}/status`,
-      updatedStatus,
+      `/api/bookings/${bookingId}/status`,
+      { status: updatedStatus },
       {
         headers: {
           Authorization: `Bearer ${token}`,

@@ -115,6 +115,7 @@ export async function createBooking(request, response) {
       booking: savedBooking,
     });
   } catch (error) {
+    console.error("Errore:", error);
     response.status(500).json({
       message: "Errore del server nella creazione della prenotazione.",
       error: error.message,
@@ -197,8 +198,10 @@ export async function updateBookingStatus(request, response) {
       .status(200)
       .json({ message: "Status aggiornato correttamente!", booking: booking });
   } catch (error) {
+    console.error("Errore updateBookingStatus:", error);
     response.status(500).json({
       message: "Errore nell'aggiornamento dello status a livello del server.",
+      error: error.message,
     });
   }
 }

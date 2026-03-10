@@ -74,12 +74,11 @@ function AdminBookings() {
       setShowModal(false);
       fetchBookings();
 
+      console.log("Valore di updatedStatus:", selectedBooking.status);
+
       await updateBookingStatus(
         selectedBooking._id,
-        {
-          status: selectedBooking.status,
-          notes: selectedBooking.notes,
-        },
+        selectedBooking.status,
         token
       );
 
@@ -129,7 +128,11 @@ function AdminBookings() {
           <Form.Select
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value)}
-            style={{ width: "200px", color: "#141f36", border: "1px solid #141f36" }}
+            style={{
+              width: "200px",
+              color: "#141f36",
+              border: "1px solid #141f36",
+            }}
           >
             <option value="all">Tutti</option>
             <option value="pending">Pending</option>
